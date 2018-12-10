@@ -514,6 +514,14 @@ namespace FFXIV_TexTools2.IO
                                                     cData.texCoord = newCoords;
                                                 }
 
+                                                if(meshNum < 3)
+                                                {
+                                                    for(var idx = 0; idx < cData.texCoord.Count; idx+= tcStride)
+                                                    {
+                                                        cData.texCoord[idx] = cData.texCoord[idx] / 2.0f;
+                                                    }
+                                                }
+
                                                 // UV2
                                                 if (cData.texCoord2.Count == 0)
                                                 {
@@ -3469,6 +3477,9 @@ namespace FFXIV_TexTools2.IO
 							y = h2;
 							z = h3;
 							w = h4;
+
+                            // Halve Extra Data UV Coordinate
+                            x = x / 2.0f;
 
                             if (newMeshHidingDataCount > 0)
                             {
