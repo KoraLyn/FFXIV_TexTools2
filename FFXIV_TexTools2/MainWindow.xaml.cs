@@ -29,6 +29,9 @@ using System.Windows.Forms;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Configuration;
+using System.Net;
+using System.Linq;
+using System.Net.Http;
 using Application = System.Windows.Application;
 
 namespace FFXIV_TexTools2
@@ -40,7 +43,6 @@ namespace FFXIV_TexTools2
     {
         MainViewModel mViewModel;
         CategoryViewModel selectedItem;
-        
 
         public MainWindow()
         {
@@ -104,6 +106,64 @@ namespace FFXIV_TexTools2
             ProblemCheckView pcv = new ProblemCheckView();
             pcv.Owner = this;
             pcv.Show();
+        }
+
+        private void Menu_CheckOffsets_Click(object sender, RoutedEventArgs e)
+        {
+            var domain = "http://offsets.xivmodarchive.com";
+
+            var gameDir = Properties.Settings.Default.FFXIV_Directory.Substring(0, Properties.Settings.Default.FFXIV_Directory.LastIndexOf("sqpack"));
+            var versionFile = File.ReadAllLines(gameDir + "/ffxivgame.ver");
+            var ffxivVersion = versionFile[0];
+
+            var request = WebRequest.Create(domain + "/GetOffset/04?version=" + ffxivVersion);
+
+            var originalOffsets = new Dictionary<string, int>();
+
+            foreach (string line in File.ReadAllLines(Properties.Settings.Default.Modlist_Directory))
+            {
+                JsonEntry entry = JsonConvert.DeserializeObject<JsonEntry>(line);
+                originalOffsets.Add(entry.fullPath, entry.originalOffset);
+            }
+            
+            request.ContentType = "application/json";
+            request.Method = "POST";
+            
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                var json = JsonConvert.SerializeObject(originalOffsets.Keys.ToArray());
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            OffsetServerResponse serverOffsets;
+            try
+            {
+                var httpResponse = (HttpWebResponse)request.GetResponse();
+                var data = "";
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    data = streamReader.ReadToEnd();
+                }
+                serverOffsets = JsonConvert.DeserializeObject<OffsetServerResponse>(data);
+            } catch(Exception Err)
+            {
+                System.Windows.Forms.MessageBox.Show("Attempt to validate offsets with external server failed.\nPlease check your network status and firewall settings.");
+                return;
+            }
+
+            
+
+            var mismatchedOffsets = originalOffsets.Where(x =>
+            {
+                return x.Value != serverOffsets.result[x.Key];
+            });
+
+            System.Windows.Forms.MessageBox.Show(mismatchedOffsets.Count().ToString() + " mismatched offset(s).");
+
+
+
         }
 
         private void Menu_BugReport_Click(object sender, RoutedEventArgs e)
