@@ -19,7 +19,6 @@ using FFXIV_TexTools2.Helpers;
 using FFXIV_TexTools2.Material.ModelMaterial;
 using FFXIV_TexTools2.Model;
 using FFXIV_TexTools2.Resources;
-using Newtonsoft.Json;
 using HelixToolkit.Wpf.SharpDX.Core;
 using SharpDX;
 using System;
