@@ -55,7 +55,7 @@ namespace FFXIV_TexTools2.Material
             {
                 foreach (string race in Info.IDRace.Keys)
                 {
-                    MTRLFolder = String.Format(Strings.BodyMtrlFolder, race, "0001");
+                    MTRLFolder = String.Format(Strings.BodyMtrlFolder, race, "0001", "0001");
 
                     racesDict.Add(FFCRC.GetHash(MTRLFolder), race);
                 }
@@ -93,7 +93,7 @@ namespace FFXIV_TexTools2.Material
             {
                 foreach (string race in Info.IDRace.Keys)
                 {
-                    MTRLFolder = String.Format(Strings.TailMtrlFolder, race, "0001");
+                    MTRLFolder = String.Format(Strings.TailMtrlFolder, race, "0001", "0001");
 
                     racesDict.Add(FFCRC.GetHash(MTRLFolder), race);
                 }
@@ -173,7 +173,7 @@ namespace FFXIV_TexTools2.Material
             {
                 for (int i = 1; i < 251; i++)
                 {
-                    MTRLFolder = String.Format(Strings.BodyMtrlFolder, raceID, i.ToString().PadLeft(4, '0'));
+                    MTRLFolder = String.Format(Strings.BodyMtrlFolder, raceID, i.ToString().PadLeft(4, '0'), IMCVersion);
 
                     MTRLDict.Add(FFCRC.GetHash(MTRLFolder), i);
                 }
@@ -208,7 +208,7 @@ namespace FFXIV_TexTools2.Material
             {
                 for (int i = 1; i < 251; i++)
                 {
-                    MTRLFolder = String.Format(Strings.TailMtrlFolder, raceID, i.ToString().PadLeft(4, '0'));
+                    MTRLFolder = String.Format(Strings.TailMtrlFolder, raceID, i.ToString().PadLeft(4, '0'), IMCVersion);
 
                     MTRLDict.Add(FFCRC.GetHash(MTRLFolder), i);
                 }
@@ -471,7 +471,7 @@ namespace FFXIV_TexTools2.Material
             }
             else if (item.ItemName.Equals(Strings.Body))
             {
-                MTRLFolder = String.Format(Strings.BodyMtrlFolder, raceID, part.PadLeft(4, '0'));
+                MTRLFolder = String.Format(Strings.BodyMtrlFolder, raceID, part.PadLeft(4, '0'), IMCVersion);
                 MTRLFile = String.Format(Strings.BodyMtrlFile, raceID, part.PadLeft(4, '0'));
 
                 if(Helper.FileExists(FFCRC.GetHash(MTRLFile), FFCRC.GetHash(MTRLFolder), Strings.ItemsDat))

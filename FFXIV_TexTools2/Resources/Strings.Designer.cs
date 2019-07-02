@@ -295,7 +295,7 @@ namespace FFXIV_TexTools2.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to chara/human/c{0}/obj/body/b{1}/material.
+        ///   Looks up a localized string similar to chara/human/c{0}/obj/body/b{1}/material/v{2}.
         /// </summary>
         internal static string BodyMtrlFolder {
             get {
@@ -966,6 +966,15 @@ namespace FFXIV_TexTools2.Resources {
         internal static string Head_Body {
             get {
                 return ResourceManager.GetString("Head_Body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hrothgar.
+        /// </summary>
+        internal static string Hrothgar {
+            get {
+                return ResourceManager.GetString("Hrothgar", resourceCulture);
             }
         }
         
@@ -1681,7 +1690,7 @@ namespace FFXIV_TexTools2.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to chara/human/c{0}/obj/tail/t{1}/material.
+        ///   Looks up a localized string similar to chara/human/c{0}/obj/tail/t{1}/material/v{2}.
         /// </summary>
         internal static string TailMtrlFolder {
             get {
@@ -1722,6 +1731,15 @@ namespace FFXIV_TexTools2.Resources {
         internal static string UIFile {
             get {
                 return ResourceManager.GetString("UIFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Viera.
+        /// </summary>
+        internal static string Viera {
+            get {
+                return ResourceManager.GetString("Viera", resourceCulture);
             }
         }
         

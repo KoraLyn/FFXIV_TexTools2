@@ -192,7 +192,7 @@ namespace FFXIV_TexTools2.Views
 
                                 if (indexFile.Key.Equals(Strings.ItemsDat))
                                 {
-                                    if (datNum > 3)
+                                    if (datNum > 4)
                                     {
                                         AddText("\u2716\n", "Red");
                                         problem = true;
@@ -248,7 +248,7 @@ namespace FFXIV_TexTools2.Views
 
                                 if (indexFile.Key.Equals(Strings.ItemsDat))
                                 {
-                                    if (datNum > 3)
+                                    if (datNum > 4)
                                     {
                                         AddText("\t" + i + "\u2716\n", "Red");
                                         problem = true;
@@ -438,7 +438,7 @@ namespace FFXIV_TexTools2.Views
 
                             if (indexFile.Key.Equals(Strings.ItemsDat))
                             {
-                                if (datNum >= 4)
+                                if (datNum >= 5)
                                 {
                                     if (!modOffsetList.Contains(offset * 8))
                                     {
@@ -500,7 +500,7 @@ namespace FFXIV_TexTools2.Views
 
                             if (indexFile.Key.Equals(Strings.ItemsDat))
                             {
-                                if (datNum >= 4)
+                                if (datNum >= 5)
                                 {
                                     if (!modOffsetList.Contains(offset * 8))
                                     {

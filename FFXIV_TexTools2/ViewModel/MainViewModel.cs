@@ -121,7 +121,7 @@ namespace FFXIV_TexTools2.ViewModel
             var applicationVersion = FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).FileVersion;
 
             CheckForModList();
-            CheckVersion();
+            //CheckVersion();
             MakeModContainers();
 
             var gameDir = "";
@@ -547,9 +547,9 @@ namespace FFXIV_TexTools2.ViewModel
 
             if (File.Exists(newModListDirectory.FullName))
             {
-                FlexibleMessageBox.Show("You are using an older version of TexTools.\n\n" +
-                                        "Importing with this version may cause issues.", "Conflicting Versions", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                //FlexibleMessageBox.Show("You are using an older version of TexTools.\n\n" +
+                //                        "Importing with this version may cause issues.", "Conflicting Versions", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //return;
             }
 
 

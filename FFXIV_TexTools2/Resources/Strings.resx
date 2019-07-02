@@ -325,7 +325,7 @@
     <value>mt_c{0}b{1}_a.mtrl</value>
   </data>
   <data name="BodyMtrlFolder" xml:space="preserve">
-    <value>chara/human/c{0}/obj/body/b{1}/material</value>
+    <value>chara/human/c{0}/obj/body/b{1}/material/v{2}</value>
   </data>
   <data name="DemiMtrlFile" xml:space="preserve">
     <value>mt_d{0}e{1}_{2}_{3}.mtrl</value>
@@ -379,7 +379,7 @@
     <value>mt_c{0}t{1}_a.mtrl</value>
   </data>
   <data name="TailMtrlFolder" xml:space="preserve">
-    <value>chara/human/c{0}/obj/tail/t{1}/material</value>
+    <value>chara/human/c{0}/obj/tail/t{1}/material/v{2}</value>
   </data>
   <data name="WeapMtrlFile" xml:space="preserve">
     <value>mt_w{0}b{1}_{2}.mtrl</value>
@@ -716,5 +716,11 @@
   </data>
   <data name="OpenCollada" xml:space="preserve">
     <value>OpenCOLLADA</value>
+  </data>
+  <data name="Hrothgar" xml:space="preserve">
+    <value>Hrothgar</value>
+  </data>
+  <data name="Viera" xml:space="preserve">
+    <value>Viera</value>
   </data>
 </root>

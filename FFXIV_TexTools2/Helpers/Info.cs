@@ -40,13 +40,13 @@ namespace FFXIV_TexTools2.Helpers
 
         public static Dictionary<string, string> ModDatDict = new Dictionary<string, string>
         {
-            {Strings.ItemsDat, "4" },
+            {Strings.ItemsDat, "5" },
             {Strings.UIDat, "2" }
         };
 
         public static Dictionary<string, int> ModIndexDict = new Dictionary<string, int>
         {
-            {Strings.ItemsDat, 5 },
+            {Strings.ItemsDat, 6 },
             {Strings.UIDat, 3 }
         };
 
@@ -126,6 +126,10 @@ namespace FFXIV_TexTools2.Helpers
             {Strings.Au_Ra + " " + Strings.Male + " NPC", "1304"},
             {Strings.Au_Ra + " " + Strings.Female, "1401"},
             {Strings.Au_Ra + " " + Strings.Female + " NPC", "1404"},
+            {Strings.Hrothgar + " " + Strings.Male, "1501"},
+            {Strings.Hrothgar + " " + Strings.Male + " NPC", "1504"},
+            {Strings.Viera + " " + Strings.Female, "1801"},
+            {Strings.Viera + " " + Strings.Female + " NPC", "1804"},
             {"NPC " + Strings.Male,  "9104"},
             {"NPC " + Strings.Female, "9204"},
             {Strings.All, Strings.All}
@@ -170,6 +174,10 @@ namespace FFXIV_TexTools2.Helpers
             {"1304", Strings.Au_Ra + " " + Strings.Male + " NPC"},
             {"1401", Strings.Au_Ra + " " + Strings.Female},
             {"1404", Strings.Au_Ra + " " + Strings.Female + " NPC"},
+            {"1501", Strings.Hrothgar + " " + Strings.Male},
+            {"1504", Strings.Hrothgar + " " + Strings.Male + " NPC"},
+            {"1801", Strings.Viera + " " + Strings.Female},
+            {"1804", Strings.Viera + " " + Strings.Female + " NPC"},
             {"9104", "NPC " + Strings.Male},
             {"9204", "NPC " + Strings.Female}
         };

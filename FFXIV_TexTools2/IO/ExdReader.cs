@@ -90,7 +90,7 @@ namespace FFXIV_TexTools2.IO
         {
             TreeNode petNode = new TreeNode() { Name = Strings.Pets };
             List<string> petNames = new List<string>();
-
+            return petNode;
             var petFile = String.Format(Strings.PetEXD, Strings.Language);
             byte[] petBytes;
             try

@@ -1430,7 +1430,7 @@ namespace FFXIV_TexTools2.ViewModel
                     }
 
 
-                    mtrlFolder = string.Format(Strings.BodyMtrlFolder, race, modelID);
+                    mtrlFolder = string.Format(Strings.BodyMtrlFolder, race, modelID, itemVersion);
                     MTRLFile = string.Format(Strings.BodyMtrlFile, race, modelID);
                     break;
                 //face
@@ -1448,7 +1448,7 @@ namespace FFXIV_TexTools2.ViewModel
                 //tail
                 case "ct":
                     modelID = materialStrings[mNum].Substring(10, 4);
-                    mtrlFolder = string.Format(Strings.TailMtrlFolder, race, modelID);
+                    mtrlFolder = string.Format(Strings.TailMtrlFolder, race, modelID, itemVersion);
                     break;
                 //monster
                 case "mb":
