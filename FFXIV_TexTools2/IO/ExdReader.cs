@@ -1847,15 +1847,15 @@ namespace FFXIV_TexTools2.IO
 
                                     item.Icon = icon.ToString();
 
-                                    br.ReadBytes(16);
+                                    br.ReadBytes(18);
 
                                     byte[] slotBytes = br.ReadBytes(4).ToArray();
                                     item.ItemCategory = slotBytes[0].ToString();
 
-                                    br.ReadBytes(2);
+                                    br.ReadBytes(8);
                                     br.ReadBytes(lastText);
 
-                                    var name = Encoding.UTF8.GetString(br.ReadBytes(entrySize - (lastText + 160))).Replace("\0", "");
+                                    var name = Encoding.UTF8.GetString(br.ReadBytes(entrySize - (lastText + 168))).Replace("\0", "");
                                     item.ItemName = new string(name.Where(c => !char.IsControl(c)).ToArray());
 
                                     if (item.ItemCategory.Equals("0") || item.ItemCategory.Equals("1") || item.ItemCategory.Equals("2") || item.ItemCategory.Equals("13") || item.ItemCategory.Equals("14"))
@@ -1912,7 +1912,7 @@ namespace FFXIV_TexTools2.IO
 
                                     item.Icon = BitConverter.ToUInt16(br.ReadBytes(2).Reverse().ToArray(), 0).ToString();
 
-                                    br.ReadBytes(14);
+                                    br.ReadBytes(16);
 
                                     var someByte = br.ReadByte();
 
@@ -1925,11 +1925,11 @@ namespace FFXIV_TexTools2.IO
                                         errorCount++;
                                     }
 
-                                    br.ReadBytes(7);
+                                    br.ReadBytes(13);
 
                                     br.ReadBytes(lastText);
 
-                                    var name = Encoding.UTF8.GetString(br.ReadBytes(entrySize - (lastText + 160))).Replace("\0", "");
+                                    var name = Encoding.UTF8.GetString(br.ReadBytes(entrySize - (lastText + 168))).Replace("\0", "");
                                     item.ItemName = new string(name.Where(c => !char.IsControl(c)).ToArray());
 
                                     item.ItemCategory = Strings.Items;

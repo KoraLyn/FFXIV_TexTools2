@@ -1470,7 +1470,28 @@ namespace FFXIV_TexTools2.ViewModel
             }
             else if (typeChar.Equals("cb") || typeChar.Equals("ct"))
             {
-                var info = MTRL.GetMTRLInfo(Helper.GetDataOffset(FFCRC.GetHash(mtrlFolder), FFCRC.GetHash(MTRLFile), Strings.ItemsDat), true);
+                var mtrlOffset = Helper.GetDataOffset(FFCRC.GetHash(mtrlFolder), FFCRC.GetHash(MTRLFile), Strings.ItemsDat);
+                if (mtrlOffset == 0)
+                {
+                    // Change to default version if no offset is found and try to get offset again
+                    if (!mtrlFolder.Contains("v0001"))
+                    {
+                        var newMtrlFolder = mtrlFolder.Substring(0, mtrlFolder.LastIndexOf("v")) + "v0001";
+
+                        mtrlOffset = Helper.GetDataOffset(FFCRC.GetHash(newMtrlFolder), FFCRC.GetHash(MTRLFile), Strings.ItemsDat);
+
+                        if (mtrlOffset == 0)
+                        {
+                            throw new Exception("Could not find offset");
+                        }                        
+                    }
+                    else
+                    {
+                        throw new Exception("Could not find offset");
+
+                    }
+                }
+                var info = MTRL.GetMTRLInfo(mtrlOffset, true);
                 info.MTRLPath = mtrlFolder + "/" + MTRLFile;
                 return info;
             }
